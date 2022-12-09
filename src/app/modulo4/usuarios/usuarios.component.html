@@ -1,0 +1,31 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container text-center">
+    <br>
+    <table class="table table-info table-hover table-sm caption-top">
+        <caption>LISTA DE USUARIOS</caption>
+      <thead>
+          <th><i class="fa-solid fa-fingerprint">ID</i></th>
+          <th>NOMBRE</th>
+          <th>USERNAME</th>
+          <th>CORREO</th>
+          <th>DIRECCI&Oacute;N</th>
+          <th>TEL&Eacute;FONO</th>
+          <th>WEBSITE</th>
+          <th>COMPAÑ&Iacute;A</th>
+      </thead>
+      <tbody *ngFor="let u of usuarios">
+        <tr>
+          <td> {{ u.id }} </td>
+          <td> {{ u.name }} </td>
+          <td> {{ u.username }} </td>
+          <td> {{ u.email }} </td>
+          <td> {{ u.address.city }} </td>
+          <td> {{ u.phone }} </td>
+          <td> {{ u.website }} </td>
+          <td> {{ u.company.name }} </td>
+        </tr>
+      </tbody>
+    </table>
+    Fuente: <a href="http://jsonplaceholder.typicode.com/users/" target="_blank">http://jsonplaceholder.typicode.com/users/</a>
+    <br><br>
+</div>

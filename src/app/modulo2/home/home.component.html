@@ -1,0 +1,259 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container main">
+    <h3 class="text-center pt-3">REGISTRA TU LIBRO</h3>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form [formGroup]="form" novalidate (ngSubmit)="save($event)" action="" class="form-control m-3 p-3 bg-light">
+                <div class="row">
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="dniCtrl" [(ngModel)]="selectedResenia.dni" name="dniUsuarioInput" class="form-control" placeholder="...">
+                            <label for="dniUsuarioInput">DNI del Usuario</label>
+                            {{ form.get('dniCtrl')?.value.length }} / 8
+                        </div>
+                        <div *ngIf="form.get('dniCtrl')?.errors && form.get('dniCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('dniCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('dniCtrl')?.hasError('minlength')">
+                              Mínimo deben haber 8 caracteres.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('dniCtrl')?.hasError('maxlength')">
+                              Máximo deben haber 8 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="nombresCtrl" [(ngModel)]="selectedResenia.nombres" name="nombreUsuarioInput" class="form-control" placeholder="...">
+                            <label for="nombreUsuarioInput">Nombres del Usuario</label>
+                            {{ form.get('nombresCtrl')?.value.length }} / 30
+                        </div>
+                        <div *ngIf="form.get('nombresCtrl')?.errors && form.get('nombresCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('nombresCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('nombresCtrl')?.hasError('minlength')">
+                              Mínimo deben haber 3 caracteres.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('nombresCtrl')?.hasError('maxlength')">
+                              Máximo deben haber 30 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="apellidosCtrl" [(ngModel)]="selectedResenia.apellidos" name="apellidosUsuarioInput" class="form-control" placeholder="...">
+                            <label for="apellidosUsuarioInput">Apellidos del Usuario</label>
+                            {{ form.get('apellidosCtrl')?.value.length }} / 40
+                        </div>
+                        <div *ngIf="form.get('apellidosCtrl')?.errors && form.get('apellidosCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('apellidosCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('apellidosCtrl')?.hasError('minlength')">
+                              Mínimo deben haber 4 caracteres.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('apellidosCtrl')?.hasError('maxlength')">
+                              Máximo deben haber 40 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="form-floating mb-3">
+                            <input type="email" formControlName="correoCtrl" [(ngModel)]="selectedResenia.correo" name="correoUsuarioInput" class="form-control" placeholder="...">
+                            <label for="correoUsuarioInput">Correo</label>
+                            {{ correoField?.value.length }} / 30
+                        </div>
+                        <div *ngIf="correoField?.errors && correoField?.touched">
+                            <p class="text-danger" *ngIf="correoField?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="correoField?.hasError('email')">
+                              No es un correo válido.
+                            </p>
+                            <p class="text-danger" *ngIf="correoField?.hasError('maxlength')">
+                              Máximo deben haber 30 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="#generoInput">G&eacute;nero</label>
+                            <select formControlName="generoCtrl" [(ngModel)]="selectedResenia.genero" class="form-select" name="generoInput">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            </select>
+                        </div>
+                        <div *ngIf="form.get('generoCtrl')?.errors && form.get('generoCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('generoCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="nombreLibroCtrl" [(ngModel)]="selectedResenia.libro" name="nombreLibroInput" class="form-control" placeholder="...">
+                            <label for="nombreLibroInput">Nombre del Libro</label>
+                            {{ form.get('nombreLibroCtrl')?.value.length }} / 30
+                        </div>
+                        <div *ngIf="form.get('nombreLibroCtrl')?.errors && form.get('nombreLibroCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('nombreLibroCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('nombreLibroCtrl')?.hasError('minlength')">
+                              Mínimo deben haber 3 caracteres.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('nombreLibroCtrl')?.hasError('maxlength')">
+                              Máximo deben haber 30 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="autorCtrl" [(ngModel)]="selectedResenia.autor" name="autorLibroInput" class="form-control" placeholder="...">
+                            <label for="autorLibroInput">Autor del Libro</label>
+                            {{ form.get('autorCtrl')?.value.length }} / 20
+                        </div>
+                        <div *ngIf="form.get('autorCtrl')?.errors && form.get('autorCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('autorCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('autorCtrl')?.hasError('minlength')">
+                              Mínimo deben haber 4 caracteres.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('autorCtrl')?.hasError('maxlength')">
+                              Máximo deben haber 20 caracteres.
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+
+                        <div class="form-floating mb-3">
+                            <input type="number" formControlName="puntuacionCtrl" [(ngModel)]="selectedResenia.puntuacion" name="puntuacionLibroInput" class="form-control" placeholder="...">
+                            <label for="puntuacionLibroInput">Puntuaci&oacute;n del Libro (1-9)</label>
+                        </div>
+                        <div *ngIf="form.get('puntuacionCtrl')?.errors && form.get('puntuacionCtrl')?.touched">
+                            <p class="text-danger" *ngIf="form.get('puntuacionCtrl')?.hasError('required')">
+                              Es un campo requerido
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('puntuacionCtrl')?.hasError('min')">
+                              Mínimo 1 punto.
+                            </p>
+                            <p class="text-danger" *ngIf="form.get('puntuacionCtrl')?.hasError('max')">
+                              Máximo 9 puntos.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea formControlName="comentarioCtrl" [(ngModel)]="selectedResenia.comentario" class="form-control" placeholder="..." name="comentarioInput" style="height: 150px"></textarea>
+                    <label for="comentarioInput">Comentario</label>
+                    {{ form.get('comentarioCtrl')?.value.length }} / 20
+                </div>
+                <div *ngIf="form.get('comentarioCtrl')?.errors && form.get('comentarioCtrl')?.touched">
+                    <p class="text-danger" *ngIf="form.get('comentarioCtrl')?.hasError('required')">
+                      Es un campo requerido
+                    </p>
+                    <p class="text-danger" *ngIf="form.get('comentarioCtrl')?.hasError('minlength')">
+                      Mínimo deben haber 5 caracteres.
+                    </p>
+                    <p class="text-danger" *ngIf="form.get('comentarioCtrl')?.hasError('maxlength')">
+                      Máximo deben haber 20 caracteres.
+                    </p>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button [disabled]="form.invalid" class="btn btn-info mx-5" type="submit" data-bs-toggle="modal" data-bs-target="#tablaHome">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save
+                    </button>
+                    <!-- <button class="btn btn-primary mx-5" type="submit" data-bs-toggle="modal" data-bs-target="#tablaHome">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Ver Data
+                    </button> -->
+                </div>
+            </form>
+
+            <!-- MODAL -->
+            <div class="modal fade" id="tablaHome" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de Libros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <table class="table">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>DNI</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>G&eacute;nero</th>
+                            <th>Libro</th>
+                            <th>Autor</th>
+                            <th>Puntuaci&oacute;n</th>
+                            <th>Comentario</th>
+                            <th>Status</th>
+                            <th colspan="2">Opciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let resenia of reseniaArray;">
+                            <td class="table-dark"><span class="badge bg-primary"><!-- {{ i + 1 }} -->{{ resenia.id }}</span></td>
+                            <td>{{ resenia.dni }}</td>
+                            <td>{{ resenia.nombres }}</td>
+                            <td>{{ resenia.apellidos }}</td>
+                            <td>{{ resenia.correo }}</td>
+                            <td>{{ resenia.genero }}</td>
+                            <td>{{ resenia.libro }}</td>
+                            <td>{{ resenia.autor }}</td>
+                            <td>{{ resenia.puntuacion }}</td>
+                            <td>{{ resenia.comentario }}</td> 
+                            <td *ngIf="resenia.puntuacion > 8; else opcion2" class="bg-warning">
+                            Recomendado por {{ resenia.nombres }}.
+                            </td>
+                            <ng-template #opcion2>
+                            <td>
+                                Normal.
+                            </td>
+                            </ng-template>
+                            <td><button (click)="openForEdit(resenia)" class="btn btn-success btn-sm">Editar</button></td>
+                            <td><button (click)="eliminar(resenia)" class="btn btn-danger btn-sm">Eliminar</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- FIN MODAL -->
+        </div>
+    </div>
+</div>

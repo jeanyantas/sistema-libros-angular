@@ -1,0 +1,34 @@
+<div class="fondo">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div style="width: 500px;">
+            <h1 class="text-center mb-5">SISTEMA DE LIBROS</h1>
+            <div class="alert alert-danger visually-hidden text-center" #alerta>{{resultado}}</div>
+            <form (submit)="login(username.value, password.value, alerta)" [formGroup]="loginForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="floating" id="username" name="username"
+                        formControlName="username" #username>
+                    <label for="username"><i class="fa-solid fa-user"></i> Usuario</label>
+                    DIGITAR: <span>JP</span>
+                </div>
+                <div *ngIf="loginForm.get('username')?.errors?.['required']" class="alert alert-danger mt-3 text-center">
+                    Username is Requerid</div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" placeholder="floating" id="password" name="password"
+                        formControlName="password" #password>
+                    <label for="password" class="form-label"><i class="fa-solid fa-key"></i> Password</label>
+                    DIGITAR: <span>123</span>
+                </div>
+                <div *ngIf="loginForm.get('password')?.errors?.['required']" class="alert alert-danger mt-3 text-center">
+                    Password is Requerid
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary mx-auto d-block mt-5"
+                        [disabled]="loginForm.invalid">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        Iniciar Sesi&oacute;n
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

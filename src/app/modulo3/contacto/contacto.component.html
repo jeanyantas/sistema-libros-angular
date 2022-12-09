@@ -1,0 +1,64 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container">
+    <h1 class="text-center m-3 p-2">FORMULARIO DE CONTACTO</h1>
+    <div class="row">
+        <div class="col-7 mx-auto">
+            <form action="" (ngSubmit)="submit()" #forma="ngForm" class="form-control m-3 p-3 bg-white">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input 
+                            #nombresInput="ngModel" [(ngModel)]="formulario.nombres" name="nombresInput" minlength="3" required
+                            [ngClass]="{'is-valid':!nombresInput.invalid,'is-invalid':nombresInput.invalid}"
+                            type="text" class="form-control" placeholder="...">
+                            <label for="nombresInput">Nombres</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input 
+                            #apellidosInput="ngModel" [(ngModel)]="formulario.apellidos" name="apellidosInput"  minlength="4" required
+                            [ngClass]="{'is-valid':!apellidosInput.invalid,'is-invalid':apellidosInput.invalid}"
+                            type="text" class="form-control" placeholder="...">
+                            <label for="apellidosInput">Apellidos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input 
+                            #correoUsuarioInput="ngModel" [(ngModel)]="formulario.correo" name="correoUsuarioInput" required
+                            [ngClass]="{'is-valid':!correoUsuarioInput.invalid,'is-invalid':correoUsuarioInput.invalid}"
+                            type="email" name="correoUsuarioInput" class="form-control" placeholder="..." pattern="[A-Za-z.-_]+[@]{1}[A-Za-z]+[.]{1}[com]{3}">
+                            <label for="correoUsuarioInput">Email</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <select 
+                            #generoInput="ngModel" [(ngModel)]="formulario.genero" name="generoInput" class="form-select" aria-label="Floating label select example" required
+                            [ngClass]="{'is-valid':!generoInput.invalid,'is-invalid':generoInput.invalid}"
+                            >
+                                <option selected>Seleccionar</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                            <label for="generoInput">G&eacute;nero</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea 
+                    #comentarioInput="ngModel" [(ngModel)]="formulario.comentario" name="comentarioInput" required
+                    [ngClass]="{'is-valid':!comentarioInput.invalid,'is-invalid':comentarioInput.invalid}"
+                    class="form-control" placeholder="..." style="height: 200px"></textarea>
+                    <label for="comentarioInput">Comentario</label>
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <button class="btn btn-info" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
